@@ -47,8 +47,10 @@ export async function POST(req: Request) {
     )
   }
 
+  const cookieStore = await cookies()
+
   // Store user details in cookies
-  await cookies().set('auth-user', JSON.stringify(user), {
+  cookieStore.set('auth-user', JSON.stringify(user), {
     httpOnly: true,
     path: '/',
   })
