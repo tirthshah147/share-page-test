@@ -2,10 +2,19 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(req: NextRequest) {
+  const host = req.headers.get('host') || ''
+  const subdomain = host.split('.')[0] // Extract subdomain
+
   const authUser = req.cookies.get('auth-user')?.value
 
+  // If user is not authenticated, redirect to login
   if (!authUser && req.nextUrl.pathname.startsWith('/dashboard')) {
     return NextResponse.redirect(new URL('/login', req.url))
+  }
+
+  // Check if the request is coming from a subdomain
+  if (subdomain !== 'founderled' && subdomain !== 'www') {
+    return NextResponse.rewrite(new URL(`/dashboard`, req.url))
   }
 
   return NextResponse.next()
