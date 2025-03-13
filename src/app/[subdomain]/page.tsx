@@ -1,6 +1,6 @@
 'use client'
 import { useParams } from 'next/navigation'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 export default function LoginPage() {
   const params = useParams()
@@ -10,7 +10,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
 
   // Example function to handle form submission
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
