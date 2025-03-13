@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "kill -9 $(lsof -ti:3000,3001) && next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
