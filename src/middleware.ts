@@ -1,11 +1,22 @@
 import { NextResponse } from 'next/server'
-import subdomains from './subdomains.json'
 
 export const config = {
   matcher: ['/((?!api/|_next/|_static/|_vercel|[\\w-]+\\.\\w+).*)'],
 }
 
 export default async function middleware(req: Request) {
+  const subdomains = [
+    {
+      subdomain: 'client1',
+    },
+    {
+      subdomain: 'make',
+    },
+    {
+      subdomain: 'test',
+    },
+  ]
+
   console.log('Middleware is working')
   const url = new URL(req.url)
   const hostname = req.headers.get('host') || ''
