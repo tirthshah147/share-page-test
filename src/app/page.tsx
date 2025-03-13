@@ -18,6 +18,7 @@ export default function Home() {
     if (response.ok) {
       alert('Subdomain added successfully!')
     } else {
+      console.log(response)
       alert('Failed to add subdomain')
     }
 
