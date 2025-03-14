@@ -32,5 +32,6 @@ export function middleware(req: NextRequest) {
 
 // Apply the middleware to all routes.
 export const config = {
-  matcher: '/:path*',
+  // This regex means: match any path that doesn't start with _next
+  matcher: ['/((?!_next).*)'],
 }
