@@ -25,6 +25,8 @@ export function middleware(req: NextRequest) {
   // Rewrite the URL to include the subdomain as part of the path.
   // For example, if the original pathname is "/about" and the subdomain is "client1",
   // the new pathname will be "/client1/about".
+  console.log('URL Pathname', url.pathname)
+  console.log('Request URL', req.url)
   return NextResponse.rewrite(new URL(`/${subdomain}${url.pathname}`, req.url))
 }
 
