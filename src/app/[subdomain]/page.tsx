@@ -1,6 +1,6 @@
 'use client'
 import { useParams } from 'next/navigation'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 export default function LoginPage() {
   const params = useParams()
@@ -8,6 +8,10 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  useEffect(() => {
+    console.log('UseEffect running')
+  }, [tenant])
 
   // Example function to handle form submission
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
