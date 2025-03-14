@@ -1,9 +1,13 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 export default function Home() {
   const [domain, setDomain] = useState('')
+
+  useEffect(() => {
+    console.log('UseEffect running')
+  }, [])
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
