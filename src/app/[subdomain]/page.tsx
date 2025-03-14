@@ -10,8 +10,12 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
 
   useEffect(() => {
-    console.log('UseEffect running')
+    console.log('UseEffect running with dependency of tenant')
   }, [tenant])
+
+  useEffect(() => {
+    console.log('UseEffect running without dependency of tenant')
+  }, [])
 
   // Example function to handle form submission
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
