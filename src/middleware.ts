@@ -9,7 +9,7 @@ export function middleware(req: NextRequest) {
   console.log('host', host)
 
   // If the request is coming from the main domain, continue normally.
-  if (host === 'founderled.co' || host == 'www.founderled.co') {
+  if (host === 'founderled.co' || host === 'www.founderled.co') {
     return NextResponse.next()
   }
 
